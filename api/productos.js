@@ -24,7 +24,15 @@ class ProductosController {
     this.arrayProductos = await ProductosService.listar();
     let { nombre, precio, foto, descripcion, codigo, stock } = body;
     if (nombre && precio && foto && descripcion && codigo && stock) {
-      const id = this.arrayProductos.length + 1;
+      // ID AUTOINCREMENTAL
+      const idArray = Math.max.apply(
+        Math,
+        this.arrayProductos.map(prod => {
+          return prod.id;
+        })
+      );
+      const id = idArray + 1;
+
       const time = new Date();
       const timestamp = time.toUTCString();
       const producto = { id, timestamp, nombre, descripcion, precio, foto, codigo, stock };

@@ -26,7 +26,15 @@ class CarritoController {
     let productExists = await ProductosController.listarId(id_producto);
 
     if (productExists) {
-      const id = this.arrayCarrito.length + 1;
+      // ID AUTOINCREMENTAL
+      const idArray = Math.max.apply(
+        Math,
+        this.arrayCarrito.map(prod => {
+          return prod.id;
+        })
+      );
+      const id = idArray + 1;
+
       const time = new Date();
       const timestamp = time.toUTCString();
       let productCarrito = { id, timestamp, producto: { ...productExists } };
