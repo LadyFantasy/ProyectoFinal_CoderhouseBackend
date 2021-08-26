@@ -1,10 +1,12 @@
 const express = require("express");
 const app = express();
+const config = require("./config/config.json")
+const persistenceType = config.persistencia
+// const MongoType = config.typeMongo
+require(`./DBConfig/${persistenceType}`)
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// TODO: middleware "login"
 
 // ROUTERS
 const routerProductos = require("./routes/productos");
@@ -26,4 +28,5 @@ const puerto = process.env.PORT || 8080;
 
 const server = app.listen(puerto, () => {
   console.log(`servidor escuchando en http://localhost:${puerto}`);
+  console.log();
 });

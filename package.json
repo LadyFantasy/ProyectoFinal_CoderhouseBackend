@@ -1,5 +1,5 @@
 {
-  "name": "entregable",
+  "name": "ecommerce",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -11,6 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "knex": "^0.95.7",
+    "mongoose": "^5.13.8",
+    "mysql": "^2.18.1",
     "nodemon": "^2.0.9"
   }
 }

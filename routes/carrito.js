@@ -3,7 +3,7 @@ const router = express.Router();
 
 // CONTROLLER
 const CarritoController = require("../api/carrito");
-const ProductosController = require("../api/productos");
+// const ProductosController = require("../api/productos");
 
 router.get("/listar", async (req, res) => {
   const carrito = await CarritoController.listar();

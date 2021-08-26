@@ -30,7 +30,7 @@ router.get("/listar/:id?", async (req, res) => {
   producto ? res.json(producto) : res.status(404).json(`No se encontró el producto con id ${id}`);
 });
 
-router.post("/agregar", administrador, async (req, res) => {
+router.post("/guardar", administrador, async (req, res) => {
   const { body } = req;
   const producto = await ProductosController.guardar(body);
   producto ? res.json(producto) : res.status(404).send("Faltan campos en el producto");

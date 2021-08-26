@@ -1,6 +1,16 @@
-// const ProductosService = require("../persistencia/productos");
-const CarritoService = require("../persistencia/carrito");
-const ProductosController = require("../api/productos");
+// // const ProductosService = require("../persistencia/productos");
+// const CarritoService = require("../persistencia/carrito");
+// const ProductosController = require("../api/productos");
+
+
+const modulo = require("../Factories/Factory");
+// elección de persistencia:
+const persistencia = modulo.getPersistencia("carrito", "mongo")
+// const persistencia = modulo.getPersistencia("carrito", "mysql")
+// const persistencia = modulo.getPersistencia("carrito", "fs")
+
+const CarritoService = persistencia
+
 
 class CarritoController {
   constructor() {
